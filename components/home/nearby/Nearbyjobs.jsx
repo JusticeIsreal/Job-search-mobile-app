@@ -32,15 +32,12 @@ const Nearbyjobs = () => {
         ) : error ? (
           <Text>Something went wrong</Text>
         ) : (
-          // <FlatList
-          //   data={data}
-          //   keyExtractor={(item) => item?.job_id}
-          //   renderItem={({ item }) => <PopularJobCard item={item} />}
-          //   contentContainerStyle={{ columnGap: SIZES.medium }}
-          //   horizontal
-          // />
           data?.map((job) => (
-            <NearbyjobsCard job={job} key={`nearby-job-${job?.job_id}`} />
+            <NearbyjobsCard
+              job={job}
+              key={`nearby-job-${job?.job_id}`}
+              handleNavigate={() => router.push(`/job-details/${job.job_id}`)}
+            />
           ))
         )}
       </View>
